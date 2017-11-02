@@ -17,6 +17,6 @@
     </environments>
         <!-- 注册userMapper.xml文件      -->
     <mappers>
-        <mapper resource="com/enfo/consumerfinance/mapping/ProductConsumer.xml"/>
+        <mapper resource="com/enfo/consumerfinance/mapping/ConsumerFinance.xml"/>
     </mappers>
 </configuration>
