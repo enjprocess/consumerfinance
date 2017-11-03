@@ -2,47 +2,32 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.enfo.consumerfinance.dao.IConsumerFinanceDao">
 	
-    <!-- <resultMap id="ProductConsumerMap" type="com.enfo.consumerfinance.model.ProductConsumerModel">
-        <id column="PRODUCT_ID" property="product_id" jdbcType="INTEGER" />
-        <result column="PRODUCT_CODE" property="product_code" jdbcType="VARCHAR" />
-        <result column="PRODUCT_NAME" property="product_name" jdbcType="VARCHAR" />
-        <result column="PRODUCT_JC" property="product_jc" jdbcType="VARCHAR" />
-        <result column="START_DATE" property="start_date" jdbcType="INTEGER" />
-        <result column="END_DATE" property="end_date" jdbcType="INTEGER" />
-        <result column="FACT_END_DATE" property="fact_end_date" jdbcType="INTEGER" />
-        <result column="VALID_PERIOD" property="valid_period" jdbcType="INTEGER" />
-        <result column="PERIOD_UNIT" property="period_unit" jdbcType="INTEGER" />
-        <result column="PRODUCT_STATUS" property="product_status" jdbcType="VARCHAR" />
-        <result column="PRODUCT_STATUS_NAME" property="product_status_name" jdbcType="VARCHAR" />
-        <result column="OPEN_FLAG" property="open_flag" jdbcType="INTEGER" />
-        <result column="OPEN_FLAG_NAME" property="open_flag_name" jdbcType="VARCHAR" />
-        <result column="TG_BANK_ID" property="tg_bank_id" jdbcType="VARCHAR" />
-        <result column="TG_BANK_NAME" property="tg_bank_name" jdbcType="VARCHAR" />
-        <result column="TG_BANK_SUB_NAME" property="tg_bank_sub_name" jdbcType="VARCHAR" />
-        <result column="TG_BANK_ACCT" property="tg_bank_acct" jdbcType="VARCHAR" />
-        <result column="TG_ACCT_NAME" property="tg_acct_name" jdbcType="VARCHAR" />
-        <result column="INTRUST_FLAG1" property="intrust_flag1" jdbcType="INTEGER" />
-        <result column="INTRUST_TYPE1" property="intrust_type1" jdbcType="VARCHAR" />
-        <result column="DEPART_ID" property="depart_id" jdbcType="INTEGER" />
-        <result column="FACT_MONEY" property="fact_money" jdbcType="DECIMAL" />
-        <result column="COOPERATION_MODE" property="cooperation_mode" jdbcType="INTEGER" />
-        <result column="STAMPDUTYRATE" property="stampdutyrate" jdbcType="DECIMAL" />
-    </resultMap> -->
-    
+	<!-- 同步信托计划 -->
 	<select id="getProductConsumer" statementType="CALLABLE"
 		parameterType="java.lang.String" resultType="com.enfo.consumerfinance.model.ProductConsumerModel">
 		 {call SP_QUERY_TPRODUCT_CONSUMER(#{product_code})}
 	</select>
 
+    <!-- 发起放款审批流程 -->
 	<select id="addInvestchangeConsumer" statementType="CALLABLE"  
 		parameterType="com.enfo.consumerfinance.model.InvestchangeConsumerModel"  >
 		 {call SP_ADD_TINVESTCHANGE_CONSUMER(#{product_id}, #{pay_date}, #{trade_money}, #{org_code}, #{org_name}, #{loan_cont_no}, #{input_man}, #{pay_file})}
 	</select>
 
+    <!-- 放款确认 -->
+        <!-- 查询接口数据 -->
 	<select id="getInvestchangeCheck" statementType="CALLABLE"  
 		parameterType="java.lang.Integer"  resultType="com.enfo.consumerfinance.model.DepositConfirmModel">
-		 {call SP_QUERY_TINVESTCHANGE_CHECK(#{product_id})}
+		 {call SP_QUERY_TINVESTCHANGE_CHECK(#{problem_id})}
 	</select>
-
+        <!-- 调用接口后修改状态 -->
+    <select id="checkInvestchangeConsumer" statementType="CALLABLE"  resultType="com.enfo.consumerfinance.model.DepositConfirmModel">
+         {call SP_CHECK_TINVESTCHANGE_CONSUMER(#{0}, #{1})}
+    </select>
+    
+    <!-- 还款流程 -->
+        <select id="addInvestchangeBackConsumer" statementType="CALLABLE" parameterType="com.enfo.consumerfinance.model.InvestchangeBackConsumerModel" >
+         {call SP_ADD_TINVESTCHANGE_BACK_CONSUMER(#{product_id}, #{date}, #{principal_amount}, #{interest_amount}, #{org_code}, #{org_name}, #{recv_file}, #{input_man})}
+    </select>
 
 </mapper>

@@ -12,6 +12,7 @@ import org.junit.Test;
 
 import com.enfo.consumerfinance.dao.IConsumerFinanceDao;
 import com.enfo.consumerfinance.model.DepositConfirmModel;
+import com.enfo.consumerfinance.model.InvestchangeBackConsumerModel;
 import com.enfo.consumerfinance.model.InvestchangeConsumerModel;
 import com.enfo.consumerfinance.model.ProductConsumerModel;
 import com.enfo.consumerfinance.util.SqlSessionUtil;
@@ -74,7 +75,22 @@ public class ConsumerFinanceTest {
         try {
             DepositConfirmModel ret = ipcd.getInvestchangeCheck(0);
             System.out.println(ret);
-            assertNotNull(ret);
+//            assertNotNull(ret);
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail("接口调用失败");
+        }
+    }
+
+    /**
+     * 测试addInvestchangeBackConsumer方法是否能够调用成功
+     */
+    @Test
+    public void testAddInvestchangeBackConsumer()  {
+        IConsumerFinanceDao ipcd = sqlSession.getMapper(IConsumerFinanceDao.class);
+        try {
+            InvestchangeBackConsumerModel ibcm = new InvestchangeBackConsumerModel(null, null, null, null, null, null, null, null);
+            ipcd.addInvestchangeBackConsumer(ibcm);
         } catch (Exception e) {
             e.printStackTrace();
             fail("接口调用失败");

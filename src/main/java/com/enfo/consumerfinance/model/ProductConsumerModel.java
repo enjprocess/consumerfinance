@@ -27,7 +27,8 @@ public class ProductConsumerModel {
     private Integer depart_id;                                   //所属部门                                             
     private BigDecimal fact_money;                           //实际发行金额                                              
     private Integer cooperation_mode;                            //合作模式（主被、被动）                                                    
-    private BigDecimal stampdutyrate;                        //印花税率              
+    private BigDecimal stampdutyrate;                        //印花税率
+    
     public Integer getProduct_id() {
         return product_id;
     }
