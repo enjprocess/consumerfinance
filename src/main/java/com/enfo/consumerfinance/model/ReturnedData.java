@@ -8,6 +8,16 @@ public class ReturnedData {
     
     private String desc;
 
+    public ReturnedData() {
+    }
+
+    public ReturnedData(boolean status, Integer code, String desc) {
+        super();
+        this.status = status;
+        this.code = code;
+        this.desc = desc;
+    }
+
     public boolean isStatus() {
         return status;
     }

@@ -83,7 +83,7 @@ public class ConsumerFinanceTest {
     }
 
     /**
-     * 测试addInvestchangeBackConsumer方法是否能够调用成功
+     * 测试addInvestchangeBackConsumer方法是否能够抛出异常
      */
     @Test
     public void testAddInvestchangeBackConsumer()  {
@@ -91,9 +91,9 @@ public class ConsumerFinanceTest {
         try {
             InvestchangeBackConsumerModel ibcm = new InvestchangeBackConsumerModel(null, null, null, null, null, null, null, null);
             ipcd.addInvestchangeBackConsumer(ibcm);
+            fail("接口调用失败");
         } catch (Exception e) {
             e.printStackTrace();
-            fail("接口调用失败");
         }
     }
 }
