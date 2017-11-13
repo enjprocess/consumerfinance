@@ -14,7 +14,6 @@ import com.enfo.consumerfinance.model.TunpostwantConsumer;
 import com.enfo.consumerfinance.service.IConsumerFinanceService;
 
 @Controller
-@RequestMapping("/consumerfinance")
 public class ConsumerFinanceController {
 
     @Autowired
