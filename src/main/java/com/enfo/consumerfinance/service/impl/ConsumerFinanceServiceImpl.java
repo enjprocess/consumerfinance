@@ -12,6 +12,7 @@ import com.enfo.consumerfinance.model.InvestchangeBackConsumerModel;
 import com.enfo.consumerfinance.model.InvestchangeConsumerModel;
 import com.enfo.consumerfinance.model.ProductConsumerModel;
 import com.enfo.consumerfinance.model.ReturnedData;
+import com.enfo.consumerfinance.model.TunpostwantConsumer;
 import com.enfo.consumerfinance.service.IConsumerFinanceService;
 
 @Service
@@ -70,6 +71,20 @@ public class ConsumerFinanceServiceImpl implements IConsumerFinanceService {
         ReturnedData rd = null;
         try {
             consumerFinanceDao.addInvestchangeBackConsumer(ibcm);
+            rd = new ReturnedData(true, 200, "调用成功!");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            rd = new ReturnedData(false, 500, "数据库异常!");
+        }
+        return rd;
+    }
+
+    @Override
+    public ReturnedData addTunpostwantConsumer(TunpostwantConsumer tc)
+            throws Exception {
+        ReturnedData rd = null;
+        try {
+            consumerFinanceDao.addTunpostwantConsumer(tc);
             rd = new ReturnedData(true, 200, "调用成功!");
         } catch (Exception ex) {
             ex.printStackTrace();

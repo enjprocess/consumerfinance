@@ -10,6 +10,7 @@ import com.enfo.consumerfinance.model.InvestchangeBackConsumerModel;
 import com.enfo.consumerfinance.model.InvestchangeConsumerModel;
 import com.enfo.consumerfinance.model.ProductConsumerModel;
 import com.enfo.consumerfinance.model.ReturnedData;
+import com.enfo.consumerfinance.model.TunpostwantConsumer;
 import com.enfo.consumerfinance.service.IConsumerFinanceService;
 
 @Controller
@@ -49,6 +50,13 @@ public class ConsumerFinanceController {
     public ReturnedData addInvestchangeBackConsumer(InvestchangeBackConsumerModel ibcm)
             throws Exception {
         return consumerFinanceService.addInvestchangeBackConsumer(ibcm);
+    }
+
+    @RequestMapping("/AccountingConsolidation")
+    @ResponseBody
+    public ReturnedData addTunpostwantConsumer(TunpostwantConsumer tc)
+            throws Exception {
+        return consumerFinanceService.addTunpostwantConsumer(tc);
     }
     
 }

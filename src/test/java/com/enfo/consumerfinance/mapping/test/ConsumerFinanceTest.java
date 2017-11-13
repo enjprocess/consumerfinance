@@ -15,6 +15,7 @@ import com.enfo.consumerfinance.model.DepositConfirmModel;
 import com.enfo.consumerfinance.model.InvestchangeBackConsumerModel;
 import com.enfo.consumerfinance.model.InvestchangeConsumerModel;
 import com.enfo.consumerfinance.model.ProductConsumerModel;
+import com.enfo.consumerfinance.model.TunpostwantConsumer;
 import com.enfo.consumerfinance.util.SqlSessionUtil;
 
 public class ConsumerFinanceTest {
@@ -91,6 +92,28 @@ public class ConsumerFinanceTest {
         try {
             InvestchangeBackConsumerModel ibcm = new InvestchangeBackConsumerModel(null, null, null, null, null, null, null, null);
             ipcd.addInvestchangeBackConsumer(ibcm);
+            fail("接口调用失败");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 测试addTunpostwantConsumer方法是否能够抛出异常
+     */
+    @Test
+    public void testAddTunpostwantConsumer()  {
+        IConsumerFinanceDao ipcd = sqlSession.getMapper(IConsumerFinanceDao.class);
+        try {
+            TunpostwantConsumer tc = new TunpostwantConsumer();
+            tc.setBusi_type(null);
+            tc.setProduct_id(null);
+            tc.setTrade_date(null);
+            tc.setPrincipal_amount(null);
+            tc.setInterest_amount(null);
+            tc.setYhs_amount(null);
+            tc.setBank_acct(null);
+            ipcd.addTunpostwantConsumer(tc);
             fail("接口调用失败");
         } catch (Exception e) {
             e.printStackTrace();

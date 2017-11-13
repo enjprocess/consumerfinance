@@ -6,6 +6,7 @@ import com.enfo.consumerfinance.model.DepositConfirmModel;
 import com.enfo.consumerfinance.model.InvestchangeBackConsumerModel;
 import com.enfo.consumerfinance.model.InvestchangeConsumerModel;
 import com.enfo.consumerfinance.model.ProductConsumerModel;
+import com.enfo.consumerfinance.model.TunpostwantConsumer;
 
 public interface IConsumerFinanceDao {
 
@@ -18,4 +19,6 @@ public interface IConsumerFinanceDao {
     public DepositConfirmModel checkInvestchangeConsumer(Integer problemId, Integer inputMan) throws Exception;
     
     public void addInvestchangeBackConsumer(InvestchangeBackConsumerModel ibcm) throws Exception;
+
+    public void addTunpostwantConsumer(TunpostwantConsumer tc) throws Exception;
 }

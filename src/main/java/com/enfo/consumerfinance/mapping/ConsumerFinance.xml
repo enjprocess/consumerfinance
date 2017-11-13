@@ -30,4 +30,10 @@
          {call SP_ADD_TINVESTCHANGE_BACK_CONSUMER(#{product_id}, #{date}, #{principal_amount}, #{interest_amount}, #{org_code}, #{org_name}, #{recv_file}, #{input_man})}
     </select>
 
+     <!-- 消费金融类会计并账 -->
+    <select id="addTunpostwantConsumer" statementType="CALLABLE"  
+        parameterType="com.enfo.consumerfinance.model.TunpostwantConsumer"  >
+         {call SP_ADD_TUNPOSTWANT_CONSUMER(#{busi_type}, #{product_id}, #{trade_date}, #{principal_amount}, #{interest_amount}, #{yhs_amount}, #{bank_acct}, #{input_man})}
+    </select>
+
 </mapper>
