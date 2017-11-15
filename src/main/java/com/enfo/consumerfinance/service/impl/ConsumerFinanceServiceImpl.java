@@ -27,13 +27,13 @@ public class ConsumerFinanceServiceImpl implements IConsumerFinanceService {
         ProductConsumerModel productConsumer = null;
        try {
            productConsumer = consumerFinanceDao.getProductConsumer(product_code);
-           if (null == productConsumer) {
+           /*if (null == productConsumer) {
                productConsumer = new ProductConsumerModel();
-           }
+           }*/
           
        } catch (Exception e) {
            //如果查询出来是多条记录的话，Mybatis会抛出SQLException 这里捕获处理下
-           productConsumer = new ProductConsumerModel();
+           //productConsumer = new ProductConsumerModel();
        }
        return productConsumer;
     }
