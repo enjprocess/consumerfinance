@@ -75,7 +75,6 @@ public class ProductConsumerModel {
     private String extensionDay;
     private String matainManager2;
     private String productNewCode;
-    
     private Integer cooperationMode;   
     private BigDecimal stampdutyrate;
     
