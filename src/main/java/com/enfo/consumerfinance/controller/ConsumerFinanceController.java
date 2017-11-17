@@ -3,6 +3,7 @@ package com.enfo.consumerfinance.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.enfo.consumerfinance.model.DepositConfirmModel;
@@ -19,17 +20,18 @@ public class ConsumerFinanceController {
     @Autowired
     private IConsumerFinanceService consumerFinanceService;
     
-    @RequestMapping("/SyncIntrustPlan")
+    @RequestMapping(value = "/SyncIntrustPlan", method = RequestMethod.POST)
     @ResponseBody
     public ProductConsumerModel getProductConsumer(String product_code)
             throws Exception {
         return consumerFinanceService.getProductConsumer(product_code);
     }
 
-    @RequestMapping("/LoanApproval")
+    @RequestMapping(value = "/LoanApproval", method = RequestMethod.POST)
     @ResponseBody
     public ReturnedData addInvestchangeConsumer(InvestchangeConsumerModel icm)
             throws Exception {
+        System.out.println("sys_org_name:" + icm.getOrg_name());
        return consumerFinanceService.addInvestchangeConsumer(icm);
     }
 
@@ -44,14 +46,15 @@ public class ConsumerFinanceController {
         return null;
     }
 
-    @RequestMapping("/Reimbursement")
+    @RequestMapping(value="/Reimbursement", method = RequestMethod.POST)
     @ResponseBody
     public ReturnedData addInvestchangeBackConsumer(InvestchangeBackConsumerModel ibcm)
             throws Exception {
+        
         return consumerFinanceService.addInvestchangeBackConsumer(ibcm);
     }
 
-    @RequestMapping("/AccountingConsolidation")
+    @RequestMapping(value = "/AccountingConsolidation", method = RequestMethod.POST)
     @ResponseBody
     public ReturnedData addTunpostwantConsumer(TunpostwantConsumer tc)
             throws Exception {
