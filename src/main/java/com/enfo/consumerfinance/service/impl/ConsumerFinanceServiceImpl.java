@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import org.apache.ibatis.executor.ReuseExecutor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
 import com.enfo.consumerfinance.dao.IConsumerFinanceDao;
@@ -14,6 +15,9 @@ import com.enfo.consumerfinance.model.ProductConsumerModel;
 import com.enfo.consumerfinance.model.ReturnedData;
 import com.enfo.consumerfinance.model.TunpostwantConsumer;
 import com.enfo.consumerfinance.service.IConsumerFinanceService;
+import com.enfo.consumerfinance.util.AmountUtil;
+import com.enfo.consumerfinance.util.ConstantUtil;
+import com.enfo.consumerfinance.util.ControllerUtil;
 
 @Service
 public class ConsumerFinanceServiceImpl implements IConsumerFinanceService {
@@ -30,6 +34,12 @@ public class ConsumerFinanceServiceImpl implements IConsumerFinanceService {
            /*if (null == productConsumer) {
                productConsumer = new ProductConsumerModel();
            }*/
+           
+           //本来数据格式处理应该放在dao层,由于这里调用了过程很难处理
+           if (null != productConsumer) {
+               //dealProductConsumerAmount(productConsumer);
+           }
+           
           
        } catch (Exception e) {
            //如果查询出来是多条记录的话，Mybatis会抛出SQLException 这里捕获处理下

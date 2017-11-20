@@ -28,9 +28,16 @@ public class ConsumerFinanceController {
      */
     @RequestMapping(value = "/SyncIntrustPlan", method = RequestMethod.POST)
     @ResponseBody
-    public ProductConsumerModel getProductConsumer(String product_code)
+    public Object getProductConsumer(String product_code)
             throws Exception {
-        return consumerFinanceService.getProductConsumer(product_code);
+        ProductConsumerModel pcm = consumerFinanceService.getProductConsumer(product_code);
+        if (null == pcm) {
+            return new ReturnedData(false, 500, "查询不到记录!");
+        } 
+        
+        
+        
+        return pcm;
     }
 
     /**
