@@ -21,7 +21,7 @@
 		 {call SP_QUERY_TINVESTCHANGE_CHECK(#{problem_id})}
 	</select>
         <!-- 调用接口后修改状态 -->
-    <select id="checkInvestchangeConsumer" statementType="CALLABLE"  resultType="com.enfo.consumerfinance.model.DepositConfirmModel">
+    <select id="checkInvestchangeConsumer" statementType="CALLABLE" resultType="map">
          {call SP_CHECK_TINVESTCHANGE_CONSUMER(#{0}, #{1})}
     </select>
     

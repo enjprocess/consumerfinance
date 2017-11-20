@@ -19,14 +19,14 @@ import com.enfo.consumerfinance.model.TunpostwantConsumer;
 import com.enfo.consumerfinance.util.SqlSessionUtil;
 
 public class ConsumerFinanceTest {
-/*
+    /* 
     SqlSession sqlSession = null;
-    
+      
     @Before
     public void setUp() throws Exception {
         sqlSession = SqlSessionUtil.getSqlSession();
     }
-    
+ 
     @After
     public void tearDown() {
         sqlSession.close();
@@ -42,17 +42,17 @@ public class ConsumerFinanceTest {
         assertNotNull(productConsumer);
     }
     
-    *//**
+    /**
      * 测试ProductConsumerModel是否已经取到数据
-     *//*
+     
     @Test
     public void testProductConsumerHaveData() throws Exception {
         IConsumerFinanceDao ipcd = sqlSession.getMapper(IConsumerFinanceDao.class);
-        ProductConsumerModel productConsumer = ipcd.getProductConsumer("17006");
+        ProductConsumerModel productConsumer = ipcd.getProductConsumer("17009");
         System.out.println(productConsumer);
-        assertArrayEquals(new int[]{1752}, new int[]{productConsumer.getProduct_id()});
-    }
-    
+        //assertArrayEquals(new int[]{1752}, new int[]{productConsumer.p});
+    }*/
+/*    
     *//**
      * 测试AddInvestchangeConsumer方法是否能够抛出异常
      *//*
@@ -62,12 +62,12 @@ public class ConsumerFinanceTest {
         InvestchangeConsumerModel icm = new InvestchangeConsumerModel(316, null, null, null, null, null, 888, null);
         try {
             ipcd.addInvestchangeConsumer(icm);
-            fail("接口调用失败");
         } catch (Exception e) {
+            e.printStackTrace();
         }
-    }
+    }*/
     
-    *//**
+    /**
      * 测试getInvestchangeCheck方法是否能够调用成功
      *//*
     @Test
@@ -83,22 +83,22 @@ public class ConsumerFinanceTest {
         }
     }
 
-    *//**
+    /**
      * 测试addInvestchangeBackConsumer方法是否能够抛出异常
-     *//*
+     
     @Test
     public void testAddInvestchangeBackConsumer()  {
         IConsumerFinanceDao ipcd = sqlSession.getMapper(IConsumerFinanceDao.class);
         try {
             InvestchangeBackConsumerModel ibcm = new InvestchangeBackConsumerModel(null, null, null, null, null, null, null, null);
             ipcd.addInvestchangeBackConsumer(ibcm);
-            fail("接口调用失败");
+            //fail("接口调用失败");
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
-    *//**
+    /*//**
      * 测试addTunpostwantConsumer方法是否能够抛出异常
      *//*
     @Test
@@ -115,6 +115,17 @@ public class ConsumerFinanceTest {
             tc.setBank_acct(null);
             ipcd.addTunpostwantConsumer(tc);
             fail("接口调用失败");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }*/
+    
+/*    @Test
+    public void testCheckInvestchangeConsumer()  {
+        IConsumerFinanceDao ipcd = sqlSession.getMapper(IConsumerFinanceDao.class);
+        
+        try {
+            ipcd.checkInvestchangeConsumer(1503, 777);
         } catch (Exception e) {
             e.printStackTrace();
         }

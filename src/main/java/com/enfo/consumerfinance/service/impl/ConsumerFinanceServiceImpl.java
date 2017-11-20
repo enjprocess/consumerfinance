@@ -55,14 +55,13 @@ public class ConsumerFinanceServiceImpl implements IConsumerFinanceService {
     @Override
     public DepositConfirmModel getInvestchangeCheck(Integer problemId)
             throws Exception {
-        
-        return null;
+        return consumerFinanceDao.getInvestchangeCheck(problemId);
     }
 
     @Override
-    public DepositConfirmModel checkInvestchangeConsumer(Integer problemId,
+    public void checkInvestchangeConsumer(Integer problemId,
             Integer inputMan) throws Exception {
-        return null;
+        consumerFinanceDao.checkInvestchangeConsumer(problemId, inputMan);
     }
 
     @Override

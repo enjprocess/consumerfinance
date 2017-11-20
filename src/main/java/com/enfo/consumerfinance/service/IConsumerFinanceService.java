@@ -15,7 +15,7 @@ public interface IConsumerFinanceService {
     
     public DepositConfirmModel getInvestchangeCheck(Integer problemId) throws Exception;
 
-    public DepositConfirmModel checkInvestchangeConsumer(Integer problemId, Integer inputMan) throws Exception;
+    public void checkInvestchangeConsumer(Integer problemId, Integer inputMan) throws Exception;
     
     public ReturnedData addInvestchangeBackConsumer(InvestchangeBackConsumerModel ibcm) throws Exception;
     
