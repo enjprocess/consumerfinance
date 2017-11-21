@@ -15,7 +15,7 @@ public class AmountUtil {
             return null;
         }
         
-        return sourceAmount.setScale(DecimalDigits, BigDecimal.ROUND_UP);
+        return sourceAmount.setScale(DecimalDigits, BigDecimal.ROUND_HALF_UP);
     }
     
     /**
@@ -27,9 +27,9 @@ public class AmountUtil {
             return null;
         }
         
-        BigDecimal bd = StringParseUtil.StringToBigDecimal(sourceAmount);
+        BigDecimal bd = StringUtil.stringToBigDecimal(sourceAmount);
         
-        return bd.setScale(DecimalDigits, BigDecimal.ROUND_UP);
+        return bd.setScale(DecimalDigits, BigDecimal.ROUND_HALF_UP);
     }
     
     

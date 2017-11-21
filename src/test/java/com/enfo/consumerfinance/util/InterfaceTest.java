@@ -31,6 +31,7 @@ public class InterfaceTest {
                 + "\"SERVICE_BODY\":{\"REQUEST\":{\"MER_ID\":\"20000000\",\"LOAN_DATE\":\"2017-10-13\","
                 + "\"CONTRACT_NUM\":\"BQXFDKD-FKZLH171013\"}}}}";
 
+        System.out.println(ret);
         Assert.assertEquals(expected, ret);
     }
 
