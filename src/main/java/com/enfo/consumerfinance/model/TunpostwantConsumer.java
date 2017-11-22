@@ -12,7 +12,7 @@ public class TunpostwantConsumer {
     private BigDecimal interest_amount;                     //5.利息发生
     private BigDecimal yhs_amount;                          //6.印花税发生
     private String bank_acct;                               //7.银行帐号
-    private Integer input_man = 888;                        //8.操作员
+    private Integer input_man = 0;                        //8.操作员
     
     public String getBusi_type() {
         return busi_type;

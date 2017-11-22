@@ -11,7 +11,7 @@ public class InvestchangeBackConsumerModel {
     private String org_code;                    //服务商编码
     private String org_name;                    //服务商名称
     private String recv_file;                   //还款文件
-    private Integer input_man = 888;            //操作员
+    private Integer input_man = 0;            //操作员
     
     public InvestchangeBackConsumerModel() {
     }

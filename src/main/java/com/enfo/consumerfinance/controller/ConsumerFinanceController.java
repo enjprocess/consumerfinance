@@ -31,10 +31,12 @@ public class ConsumerFinanceController {
     public Object getProductConsumer(String product_code)
             throws Exception {
         ProductConsumerModel pcm = consumerFinanceService.getProductConsumer(product_code);
+        
         if (null == pcm) {
             return new ReturnedData(false, 500, "查询不到记录!");
         } 
         
+       
         
         
         return pcm;
@@ -55,7 +57,7 @@ public class ConsumerFinanceController {
      */
     @RequestMapping(value = "/depositConfirm", method = RequestMethod.POST)
     @ResponseBody
-    public ReturnedData depositConfirm(Integer problem_id, @RequestParam(value = "input_man", required = false, defaultValue = "888") Integer input_man) throws Exception {
+    public ReturnedData depositConfirm(Integer problem_id, @RequestParam(value = "input_man", required = false, defaultValue = "0") Integer input_man) throws Exception {
        
         try {
             //从业务系统查出需要发送给消金系统的数据

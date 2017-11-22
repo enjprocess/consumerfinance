@@ -39,6 +39,11 @@ public class ConsumerFinanceServiceImpl implements IConsumerFinanceService {
                 TypeFormatUtil.formatAmountFromModel(productConsumer, new String[] {
                         ConstantUtil.PRE_MONEY, ConstantUtil.MIN_MONEY, ConstantUtil.FACT_MONEY, ConstantUtil.TOTAL_MONEY,
                         ConstantUtil.TOTAL_AMOUNT });
+                
+                //消金还需要状态码
+                productConsumer.setStatus(true);
+                productConsumer.setCode(200);
+                productConsumer.setDesc("调用成功!");
             }
 
         } catch (Exception e) {

@@ -10,7 +10,7 @@ public class InvestchangeConsumerModel {
     private String org_code;
     private String org_name;
     private String loan_cont_no;
-    private Integer input_man = 888;
+    private Integer input_man = 0;
     private String pay_file;
     
     public InvestchangeConsumerModel() {
