@@ -72,9 +72,9 @@ public class ConsumerFinanceController {
                 return new ReturnedData(false, 500, "没有查询到任何记录!");
             }
             
-            request.setMER_ID(depositConfirmModel.getOrg_code());
-            request.setLOAN_DATE(depositConfirmModel.getLoan_date());
-            request.setCONTRACT_NUM(depositConfirmModel.getLoan_cont_no());
+            request.setMER_ID(depositConfirmModel.getOrgCode());
+            request.setLOAN_DATE(depositConfirmModel.getSignDate());
+            request.setCONTRACT_NUM(depositConfirmModel.getLoanContNo());
             
             String preparedSendData = NetworkUtil.constructJson(request);
             String returnedData = NetworkUtil.sendJson(preparedSendData);
